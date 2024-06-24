@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -21,31 +21,5 @@ app.get('/', async (req, res) => {
 app.listen(3000, () => {
     console.log('Server is running on http://localhost:3000');
 });
-*/
-const express = require('express');
-const axios = require('axios');
-const app = express();
 
-app.set('view engine', 'ejs');
 
-app.get('/', async (req, res) => {
-    try {
-        const response = await axios.get('https://www.goldapi.io/api/XAU/THB', {
-            headers: {
-                'x-access-token': 'goldapi-108le9slxt7933c-io',
-                'Content-Type': 'application/json'
-            }
-        });
-        const goldPrice = response.data;
-
-        res.render('index', { goldPrice });
-    } catch (error) {
-        console.error(error);
-        res.render('index', { goldPrice: null });
-    }
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
