@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Price</title>
+</head>
+<body>
+    <h1>ราคาทองคำ</h1>
+    <% if (goldPrice) { %>
+        <p>ราคาทองคำปัจจุบัน: <%= goldPrice.price %> บาท</p>
+    <% } else { %>
+        <p>ไม่สามารถดึงข้อมูลราคาทองคำได้</p>
+    <% } %>
+</body>
+</html>
