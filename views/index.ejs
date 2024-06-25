@@ -1,38 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ราคาทองคำจาก API</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ราคาทองคำจาก API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>ตัวอย่างการดึงข้อมูลราคาทองคำจาก API ของ thaigold.info</h3>
-        <table class="table table-bordered table-striped">
-          <thead>
-            <tr class="table-danger">
-              <th>name</th>
-              <th>bid</th>
-              <th>ask</th>
-              <th>diff</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% data.forEach(row => { %>
-              <tr>
-                <td><%= row.name %></td>
-                <td><%= row.bid %></td>
-                <td><%= row.ask %></td>
-                <td><%= row.diff %></td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>ราคาทองคำจาก API ของ thaigold.info</h3>
+                <p>อัปเดตล่าสุด: <%= updateTime %></p>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr class="table-danger">
+                            <th>น้ำหนัก</th>
+                            <th>ราคา (บาท)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 สลึง</td>
+                            <td><%= prices.oneSalung.toFixed(2) %></td>
+                        </tr>
+                        <tr>
+                            <td>2 สลึง</td>
+                            <td><%= prices.twoSalung.toFixed(2) %></td>
+                        </tr>
+                        <tr>
+                            <td>1 บาท</td>
+                            <td><%= prices.oneBaht.toFixed(2) %></td>
+                        </tr>
+                        <tr>
+                            <td>2 บาท</td>
+                            <td><%= prices.twoBaht.toFixed(2) %></td>
+                        </tr>
+                        <tr>
+                            <td>3 บาท</td>
+                            <td><%= prices.threeBaht.toFixed(2) %></td>
+                        </tr>
+                    </tbody>
+                </table>
+                อันนี้เป็นราคาทองคำบริสุทธิ์ 96.5%
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>
