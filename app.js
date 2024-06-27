@@ -24,6 +24,7 @@ app.get('/', async (req, res) => {
 
         // คำนวณราคาทองคำตามน้ำหนักต่างๆ
         const prices = {
+            halfSalung: pricePerGram * 3.81 / 15.244 / 2,
             oneSalung: pricePerGram * 3.81 / 15.244,
             twoSalung: pricePerGram * 3.81 * 2 / 15.244,
             oneBaht: pricePerGram,
